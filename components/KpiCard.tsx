@@ -1,0 +1,1 @@
+export default function KpiCard({title,value}:{title:string,value:string|number}){return (<div className='card kpi'><div className='muted'>{title}</div><div style={{fontSize:'1.6rem',fontWeight:700}}>{value}</div></div>)}
