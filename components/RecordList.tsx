@@ -11,7 +11,7 @@ export default function RecordList(){
   async function startEdit(r:any){ if(r.refType!=='WO') return; setEditingId(r.id); setTempStatus(r.status) }
   async function saveEdit(id:string){ const rec=await db.records.get(id); if(!rec||rec.refType!=='WO') return; await db.records.update(id, (obj:any) => { if(obj.refType==='WO'){ obj.status = tempStatus as any; obj.updatedAt = new Date().toISOString(); } }); setEditingId('') }
   if(items.length===0) return <div className='card muted'>لا توجد بيانات حتى الآن</div>
-  return (<div className='card' style={{display:'grid',gap:'.5rem'}}>
+   return <div style={{display:'grid', gap:'1rem', alignItems:'center', justifyContent:'space-between', padding:'1rem', background:'transparent'}}>
     {items.map(r=>(<div key={r.id} style={{display:'flex',gap:'.5rem',alignItems:'center',justifyContent:'space-between',padding:'.5rem 0',borderBottom:'1px solid rgba(0,0,0,.06)'}}>
       <div style={{display:'flex',flexDirection:'column'}}><strong>{r.refType} #{r.refNumber}</strong><small className='muted'>{r.company}</small></div>
       <div style={{display:'flex',alignItems:'center',gap:'.5rem'}}>
