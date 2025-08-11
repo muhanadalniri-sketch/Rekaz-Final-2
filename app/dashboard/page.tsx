@@ -18,7 +18,9 @@ export default function Dashboard(){
   const wnscDurations = records.filter(r=>r.refType==='WNSC' && typeof r.durationDays==='number').map(r=>r.durationDays)
   const avgDuration = wnscDurations.length ? Math.round(wnscDurations.reduce((a,b)=>a+b,0)/wnscDurations.length) : '—'
   return (<div className='container' style={{display:'grid',gap:'1rem'}}>
-    <h1>لوحة التحكم</h1>
+    <h1 style={{ textAlign:'center', marginTop: 0 }}>
+  ملخص الشغل في شركة Rekaz
+</h1>
     <div className='grid grid-3'>
       <KpiCard title='إجمالي السجلات' value={kpiTotal} />
       <KpiCard title='WO مكتملة' value={kpiWOCompleted} />
